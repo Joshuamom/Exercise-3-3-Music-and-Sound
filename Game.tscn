@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sp64y2eqbd63"]
+[gd_scene load_steps=17 format=3 uid="uid://sp64y2eqbd63"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cfb204qt38vvo" path="res://Paddle/Paddle.tscn" id="2"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://cb6abwxodebx1" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://d03l3yccdo8fa" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Camera.gd" id="9"]
+[ext_resource type="AudioStream" uid="uid://w16tla104eqm" path="res://Assets/spooky tune2.mp3" id="10_4ges2"]
+[ext_resource type="AudioStream" uid="uid://cg8ixhbr1qd85" path="res://Assets/wall.wav" id="11_b5v0r"]
+[ext_resource type="AudioStream" uid="uid://dmalkybss01jx" path="res://Assets/ballS.wav" id="12_411o5"]
+[ext_resource type="AudioStream" uid="uid://c8ukd228ivipd" path="res://Assets/death.wav" id="13_wuj0a"]
+[ext_resource type="Script" path="res://Ball/comet_container.gd" id="14_i1r1p"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -18,6 +23,9 @@ size = Vector2(1224, 200)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("4")
+
+[node name="comet_container" type="Node2D" parent="."]
+script = ExtResource("14_i1r1p")
 
 [node name="Wall_Container" type="Node2D" parent="."]
 
@@ -74,3 +82,20 @@ visible = false
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("9")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4ges2")
+volume_db = -33.267
+autoplay = true
+
+[node name="wall_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_b5v0r")
+
+[node name="paddle_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_411o5")
+
+[node name="brick_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_411o5")
+
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_wuj0a")
