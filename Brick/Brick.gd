@@ -46,17 +46,9 @@ func _ready():
 	elif score >= 40: color_index = 6
 	else: color_index = 7
 	$ColorRect.color = colors[color_index]
-	sway_initial_position = $ColorRect.rect_position
-	sway_randomizer = Vector2(randf()*6-3.0, randf()*6-3.0)
+
 
 func _physics_process(_delta):
-	color_distance = Global.color_position.distance_to(global_position)  / 100
-	if Global.color_rotate >= 0:
-		$ColorRect.color = colors[(int(floor(color_distance + Global.color_rotate))) % len(colors)]
-		color_completed = false
-	elif not color_completed:
-		$ColorRect.color = colors[color_index]
-		color_completed = true
 	if dying and not $Confetti.emitting and not tween:
 		queue_free()
 	elif not get_tree().paused:

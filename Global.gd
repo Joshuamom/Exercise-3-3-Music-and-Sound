@@ -28,6 +28,7 @@ var default_starting_in = 4
 var default_lives = 5
 
 func _ready():
+	
 	process_mode = PROCESS_MODE_ALWAYS
 	randomize()
 	VP = get_viewport().size
@@ -39,7 +40,7 @@ func _physics_process(_delta):
 		color_rotate -= color_rotate_index
 		color_rotate_index *= 1.05
 	else:
-		color_rotate = 0.1
+		color_rotate_index = 0.1
 	sway_index += sway_period
 
 func _unhandled_input(event):
